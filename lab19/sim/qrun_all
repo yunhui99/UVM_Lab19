@@ -1,0 +1,7 @@
+#vcs -full64 -l fa\_comp.log -sverilog +v2k +vcs+lic+wait +vcs+flush+all -debug_access+all -kdb -debug_report -top fa_tb -o fa\_simv -ntb_opts uvm-ieee-2020-2.0 +define+UVM_OBJECT_MUST_HAVE_CONSTRUCTOR -file /home/dvuser47/uvm/lab19/design/fa.f -timescale=1ns/1ps -cm line+tgl+cond+fsm+branch+assert -assert enable_diag -cm_dir qrun_all
+
+fa\_simv -l fa_test_r\_sim.log +UVM_NO_RELNOTES -cm line+tgl+cond+fsm+branch+assert -assert summary -assert report=fa_test_r\_sva.rpt +UVM_TESTNAME=fa_test_r +vcs+fsdbon +fsdbfile+fa_test_r\_sim -cm_name fa_test_r -cm_dir qrun_all
+
+fa\_simv -l fa_test_t\_sim.log +UVM_NO_RELNOTES -cm line+tgl+cond+fsm+branch+assert -assert summary -assert report=fa_test_t\_sva.rpt +UVM_TESTNAME=fa_test_t
+
++vcs+fsdbon +fsdbfile+fa_test_t\_sim -cm_name fa_test_t -cm_dir qrun_all
